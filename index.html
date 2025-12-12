@@ -44,14 +44,16 @@
     }
     nav a:hover { color: #00d5ff; }
 
-    .section {
-      min-height: 100vh;
-      padding: 120px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-    }
+ .section {
+  padding: 80px 50px;
+  min-height: auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
 
     #home {
       display: flex;
@@ -74,7 +76,7 @@
     #home img:hover{ transform: scale(1.05); box-shadow: 0 0 60px rgba(0,213,255,0.7);} #home img {
       width: 380px;
       border-radius: 50%;
-      border: 4px solid #00d5ff;
+      border: 4px solid #4c8f9c;
       box-shadow: 0 0 40px rgba(0,213,255,0.5);
       transition: 0.4s;
     }
@@ -110,7 +112,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 25px;
-      margin-top: 30px;
+      /* margin-top: 30px; */
     }
 
     .project {
@@ -133,7 +135,7 @@
       width: 400px;
       gap: 15px;
     }
-
+    
     #contact input,#contact textarea {
       padding: 15px;
       border-radius: 5px;
@@ -142,7 +144,12 @@
       background: #1b1b1b;
       color: white;
     }
-
+    
+    .hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
     #contact button {
       padding: 15px;
       background: #00d5ff;
@@ -156,102 +163,124 @@
       background: #0088aa;
     }
   
-    /* Responsive Design */
-    @media(max-width: 900px){
-      #home{
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-      #home img{
-        width: 250px;
-      }
-      .section{
-        padding: 90px 40px;
-      }
-      #skills .skill-box{
-        grid-template-columns: repeat(2,1fr);
-      }
-      #projects .project-box{
-        grid-template-columns: 1fr;
-      }
-      #contact form{
-        width: 100%;
-      }
-    }
+    /* Default nav style */
+#navLinks {
+  display: flex;
+  gap: 20px;
+}
 
-    @media(max-width: 500px){
+/* MOBILE MENU FIX */
+@media(max-width: 900px){
+
+  #navLinks {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(0,0,0,0.95);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 200px;
+  }
+  #navLinks.show {
+    display: flex !important;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  nav a {
+    display: block;
+  }
+}
+
+@media(max-width: 400px){
+  #navLinks {
+    right: 20px;
+    width: 170px;
+  }
+}
+
+
+    @media(max-width: 300px){
       .section{
         padding: 80px 20px;
+        margin-top: 20px;
+        margin: auto;
       }
       nav{
         padding: 15px 20px;
       }
       nav a{
-        margin-left: 10px;
+      display: none;
+      
       }
-    }
+        .hamburger {
+    display: block;
+  }
 
-    /* New Sections Improvement */
-    #services, #experience{
-      margin-top: -40px;
+    }
+    .skills b {
+      margin: 4px;
+    }
+    .show{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .img{
+      margin: auto;
     }
 
   </style>
 </head>
 <body>
+ 
 
   <nav>
     <h2 style="color:#00d5ff;">MERN Developer</h2>
-    <div>
+    <div id="navLinks">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
+      <a href="#info">Info</a>
     </div>
+   <div class="hamburger"  onclick="toggleMenu()">☰</div> 
   </nav>
 
-
-  <!-- New Section: Experience -->
-  
-
-  <section class="section" id="home">
+  <section style="margin-top: 20px;" class="section" id="home">
     <div class="left">
-      <h1>Hi, I'm <br /><span style="color:#00d5ff;">MERN Stack Developer</span></h1>
+      <h1>Hi, I'm <br /><span style="color:#00d5ff;">Muammad Dilawar Khan</span></h1>
       <p>I craft dynamic, responsive, and scalable full‑stack applications using MongoDB, Express, React, and Node.js. I focus on clean code, optimized performance, and modern UI/UX practices. My goal is to turn complex problems into simple, elegant digital solutions.</p>
       <p>I specialize in building high‑performance front‑end interfaces, secure server‑side APIs, and fully integrated databases. Whether it's user dashboards, e‑commerce systems, or real‑time apps, I love creating meaningful products that provide great experiences.</p>
     </div>
-    <img src="https://i.ibb.co/5GzXkwq/profile.png" alt="profile" />
+    <img src="d:\portfolio from githu\views\myimg.jpg" alt="profile" />
   </section>
 
-
-    <!-- New Section: Services -->
-  <section class="section" id="services">
-    <h2 class="title">Services</h2>
-    <p style="max-width:800px; opacity:0.8; font-size:18px;">I offer multiple professional development services to help you grow your digital presence with modern, scalable solutions.</p>
-    <div class="skill-box" style="margin-top:30px;">
-      <div class="skill"><b>Full-Stack Web Development</b><br/>End-to-end MERN applications with authentication & dashboards.</div>
-      <div class="skill"><b>Frontend Development</b><br/>Modern UI/UX with React, Tailwind, animations & responsiveness.</div>
-      <div class="skill"><b>Backend APIs</b><br/>Secure REST APIs using Node.js, Express & MongoDB.</div>
-      <div class="skill"><b>Database Design</b><br/>Schema design, indexing, aggregation pipelines, optimization.</div>
-      <div class="skill"><b>UI/UX Improvements</b><br/>Interactive designs, visual polish, usability improvements.</div>
-      <div class="skill"><b>Bug Fixing</b><br/>Fix UI, backend, or full-stack issues professionally.</div>
-    </div>
-  </section>
-
-
-  <section class="section" id="about">
+  <section  class="section" id="about">
     <h2 class="title">About Me</h2>
     <p style="font-size:20px; opacity:0.8; max-width:800px;">
-      I am a dedicated MERN stack developer with strong expertise in building full‑stack web applications. My passion lies in delivering polished products that balance design, functionality, and performance. I enjoy working with modern technologies, solving real‑world problems, and continuously learning new tools.
-    </p>
+  Hello! I'm <strong>Muhammad Dilawar Khan</strong>, a passionate Full Stack Developer specializing in the MERN Stack. I love building responsive, user-friendly web applications that solve real-world problems.
+    Currently, I'm pursuing my BS in Computer Science (5th Semester) from the University of Azad Jammu and Kashmir. I have strong knowledge of  HTML,CSS , JavaScript, Node.js, Express.js, MongoDB, and also fundamentals of Python.
+      I enjoy learning new technologies and constantly improving my skills. My goal is to become a highly skilled software engineer and contribute to impactful projects.
     <p style="font-size:18px; opacity:0.8; max-width:850px; margin-top:15px;">
       I specialize in JavaScript‑based development, especially in crafting component‑driven UIs using React and building scalable REST APIs with Node.js & Express. My experience includes authentication systems, CRUD apps, dashboards, admin panels, and complete MERN solutions.
     </p>
     <p style="font-size:18px; opacity:0.8; max-width:850px; margin-top:15px;">
       I love experimenting with new libraries, improving UI interactions, and making systems as efficient and clean as possible. My development philosophy: <b>Write clean code, use best practices, and create seamless user experiences.</b>
     </p>
+    <div class="img">
+      <img src="pngtree-developers-are-coding-programs-on-computers-programmers-are-analyzing-data-png-image_11902650.png" alt="">
+    </div>
   </section>
 
   <section class="section" id="skills">
@@ -266,9 +295,21 @@
       <div class="skill"><b>Express.js</b><br/>REST APIs, middleware, routing systems</div>
       <div class="skill"><b>Git & GitHub</b><br/>Version control, project workflows</div>
       <div class="skill"><b>Tailwind CSS</b><br/>Modern UI styling, reusable utility classes</div>
-
   </section>
 
+
+      <section class="section" id="services">
+    <h2 class="title">Services</h2>
+    <p style="max-width:800px; opacity:0.8; font-size:18px;">I offer multiple professional development services to help you grow your digital presence with modern, scalable solutions.</p>
+    <div class="skill-box" style="margin-top:20px;">
+      <div class="skill"><b>Full-Stack Web Development</b><br/>End-to-end MERN applications with authentication & dashboards.</div>
+      <div class="skill"><b>Frontend Development</b><br/>Modern UI/UX with React, Tailwind, animations & responsiveness.</div>
+      <div class="skill"><b>Backend APIs</b><br/>Secure REST APIs using Node.js, Express & MongoDB.</div>
+      <div class="skill"><b>Database Design</b><br/>Schema design, indexing, aggregation pipelines, optimization.</div>
+      <div class="skill"><b>UI/UX Improvements</b><br/>Interactive designs, visual polish, usability improvements.</div>
+      <div class="skill"><b>Bug Fixing</b><br/>Fix UI, backend, or full-stack issues professionally.</div>
+    </div>
+  </section>
   <section class="section" id="projects">
     <h2 class="title">Projects</h2>
     <div class="project-box">
@@ -281,10 +322,6 @@
         <p>Product filtering, cart system, payment integration, admin panel, product management and orders module.</p>
       </div>
       <div class="project">
-        <h3>Project 3 — Real‑Time Chat App</h3>
-        <p>Socket.io powered messaging, online status, typing indicators, chat rooms, and responsive UI.</p>
-      </div>
-      <div class="project">
         <h3>Project 4 — Portfolio Website</h3>
         <p>Interactive UI, animations, multiple sections, smooth scrolling, responsive layout, and clean code.</p>
       </div>
@@ -292,7 +329,7 @@
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section  class="section" id="contact">
     <h2 class="title">Contact Me</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
@@ -301,6 +338,17 @@
       <button type="submit">Send Message</button>
       <p style="margin-top:10px; opacity:0.7;">I usually reply within 24 hours. Feel free to reach out for collaboration or project inquiries!</p>
     </form>
+  </section>
+
+
+    <section class="section" id="info">
+    <h2 class="title">My Info</h2>
+    <div class="info-box">
+      <div><b>Phone:</b><br/>0340-2652225</div>
+      <div><b>Email:</b><br/>mdilawarkhan473@gmail.com</div>
+      <div><b>Instagram:</b><br/>raja-dilawar-khan473</div>
+      <div><b>Location:</b><br/>Muzaffarabad Azad Kashmir, Pakistan</div>
+    </div>
   </section>
 
 
@@ -314,6 +362,11 @@
       }, 400);
     });
   });
+
+      function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  
 </script>
 
 </body>
