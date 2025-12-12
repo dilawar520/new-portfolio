@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -17,7 +17,6 @@
       background: #0a0a0a;
       color: white;
       overflow-x: hidden;
-      font-family: 'Poppins', sans-serif;
     }
 
     nav {
@@ -35,6 +34,7 @@
       z-index: 1000;
       transition: 0.3s;
     }
+
     nav a {
       margin-left: 20px;
       text-decoration: none;
@@ -42,18 +42,29 @@
       font-size: 16px;
       transition: 0.3s;
     }
+
     nav a:hover { color: #00d5ff; }
 
- .section {
-  padding: 80px 50px;
-  min-height: auto;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 20px;
-}
+    .hamburger {
+      display: none;
+      font-size: 32px;
+      cursor: pointer;
+    }
 
+    #navLinks {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 60px 40px;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 15px;
+    }
 
     #home {
       display: flex;
@@ -63,17 +74,17 @@
     }
 
     #home .left h1 {
-      font-size: 55px;
-      line-height: 65px;
+      font-size: 50px;
+      line-height: 60px;
     }
 
     #home .left p {
-      margin: 20px 0;
-      font-size: 20px;
+      margin: 15px 0;
+      font-size: 18px;
       opacity: 0.8;
     }
 
-    #home img:hover{ transform: scale(1.05); box-shadow: 0 0 60px rgba(0,213,255,0.7);} #home img {
+    #home img {
       width: 380px;
       border-radius: 50%;
       border: 4px solid #4c8f9c;
@@ -81,43 +92,52 @@
       transition: 0.4s;
     }
 
+    #home img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(0,213,255,0.7);
+    }
+
     .title {
-      font-size: 45px;
+      font-size: 40px;
       margin-bottom: 20px;
       color: #00d5ff;
     }
 
-    #skills .skill-box {
+    /* Skills */
+    #skills .skill-box,
+    #services .skill-box {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .skill {
       background: linear-gradient(135deg, #111, #1b1b1b);
-      padding: 22px;
+      padding: 20px;
       border-radius: 12px;
       text-align: center;
       transition: 0.35s;
       border: 1px solid rgba(255,255,255,0.08);
     }
+
     .skill:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 0 20px rgba(0,213,255,0.4);
       border: 1px solid #00d5ff;
     }
 
+    /* Projects */
     #projects .project-box {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      /* margin-top: 30px; */
+      gap: 20px;
+      margin-top: 20px;
     }
 
     .project {
       background: linear-gradient(145deg, #0f0f0f, #1d1d1d);
-      padding: 24px;
+      padding: 20px;
       border-radius: 15px;
       transition: 0.35s;
       border: 1px solid rgba(255,255,255,0.08);
@@ -129,14 +149,15 @@
       border: 1px solid #00d5ff;
     }
 
+    /* Contact */
     #contact form {
       display: flex;
       flex-direction: column;
       width: 400px;
       gap: 15px;
     }
-    
-    #contact input,#contact textarea {
+
+    #contact input, #contact textarea {
       padding: 15px;
       border-radius: 5px;
       border: none;
@@ -144,12 +165,7 @@
       background: #1b1b1b;
       color: white;
     }
-    
-    .hamburger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
+
     #contact button {
       padding: 15px;
       background: #00d5ff;
@@ -162,86 +178,64 @@
     #contact button:hover {
       background: #0088aa;
     }
-  
-    /* Default nav style */
-#navLinks {
-  display: flex;
-  gap: 20px;
-}
 
-/* MOBILE MENU FIX */
-@media(max-width: 900px){
+    /* Images in About */
+    .img { margin: auto; width: 100%; text-align:center; }
+    .img img { max-width: 400px; width: 100%; border-radius: 12px; }
 
-  #navLinks {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 40px;
-    flex-direction: column;
-    gap: 15px;
-    background: rgba(0,0,0,0.95);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.1);
-    width: 200px;
-  }
-  #navLinks.show {
-    display: flex !important;
-  }
-
-  .hamburger {
-    display: block;
-    font-size: 32px;
-    cursor: pointer;
-  }
-
-  nav a {
-    display: block;
-  }
-}
-
-@media(max-width: 400px){
-  #navLinks {
-    right: 20px;
-    width: 170px;
-  }
-}
-
-
-    @media(max-width: 300px){
-      .section{
-        padding: 80px 20px;
-        margin-top: 20px;
-        margin: auto;
-      }
-      nav{
-        padding: 15px 20px;
-      }
-      nav a{
-      display: none;
-      
-      }
-        .hamburger {
-    display: block;
-  }
-
+    /* General P */
+    .section p {
+      margin-top: 10px;
+      line-height: 1.5;
     }
-    .skills b {
-      margin: 4px;
+
+    /* MOBILE MENU */
+    @media(max-width: 900px){
+      #navLinks {
+        display: none;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(0,0,0,0.95);
+        padding: 20px;
+        border-radius: 0 0 0 10px;
+        border-left: 0px;
+        width: 100%;
+      }
+      #navLinks.show {
+        display: flex !important;
+      }
+
+      .hamburger { display: block; }
+
+      #home { flex-direction: column; text-align: center; gap: 25px; }
+      #home img { width: 250px; }
+
+      #skills .skill-box, #services .skill-box {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #projects .project-box {
+        grid-template-columns: 1fr;
+      }
+
+      #contact form { width: 100%; }
     }
-    .show{
-      display: flex;
-      flex-direction: column;
-      width: 100%;
+
+    @media(max-width: 500px){
+      .section { padding: 40px 20px; }
+      nav { padding: 15px 20px; }
     }
-    .img{
-      margin: auto;
+
+    @media(max-width: 400px){
+      #navLinks { right: 0; width: 100%; border-radius:0; padding:15px; }
     }
 
   </style>
 </head>
 <body>
- 
 
   <nav>
     <h2 style="color:#00d5ff;">MERN Developer</h2>
@@ -251,13 +245,14 @@
       <a href="#skills">Skills</a>
       <a href="#services">Services</a>
       <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <a href="#info">Info</a>
+      <a href="#contact">Contact-me</a>
+       <a href="#info">Info</a>
     </div>
-   <div class="hamburger"  onclick="toggleMenu()">☰</div> 
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </nav>
 
-  <section style="margin-top: 20px;" class="section" id="home">
+  <!-- Home -->
+  <section class="section" id="home">
     <div class="left">
       <h1>Hi, I'm <br /><span style="color:#00d5ff;">Muammad Dilawar Khan</span></h1>
       <p>I craft dynamic, responsive, and scalable full‑stack applications using MongoDB, Express, React, and Node.js. I focus on clean code, optimized performance, and modern UI/UX practices. My goal is to turn complex problems into simple, elegant digital solutions.</p>
@@ -266,23 +261,18 @@
     <img src="myimg.jpg" alt="profile" />
   </section>
 
-  <section  class="section" id="about">
+  <!-- About -->
+  <section class="section" id="about">
     <h2 class="title">About Me</h2>
-    <p style="font-size:20px; opacity:0.8; max-width:800px;">
-  Hello! I'm <strong>Muhammad Dilawar Khan</strong>, a passionate Full Stack Developer specializing in the MERN Stack. I love building responsive, user-friendly web applications that solve real-world problems.
-    Currently, I'm pursuing my BS in Computer Science (5th Semester) from the University of Azad Jammu and Kashmir. I have strong knowledge of  HTML,CSS , JavaScript, Node.js, Express.js, MongoDB, and also fundamentals of Python.
-      I enjoy learning new technologies and constantly improving my skills. My goal is to become a highly skilled software engineer and contribute to impactful projects.
-    <p style="font-size:18px; opacity:0.8; max-width:850px; margin-top:15px;">
-      I specialize in JavaScript‑based development, especially in crafting component‑driven UIs using React and building scalable REST APIs with Node.js & Express. My experience includes authentication systems, CRUD apps, dashboards, admin panels, and complete MERN solutions.
-    </p>
-    <p style="font-size:18px; opacity:0.8; max-width:850px; margin-top:15px;">
-      I love experimenting with new libraries, improving UI interactions, and making systems as efficient and clean as possible. My development philosophy: <b>Write clean code, use best practices, and create seamless user experiences.</b>
-    </p>
+    <p>Hello! I'm <strong>Muhammad Dilawar Khan</strong>, a passionate Full Stack Developer specializing in the MERN Stack. I love building responsive, user-friendly web applications that solve real-world problems. Currently, I'm pursuing my BS in Computer Science (5th Semester) from the University of Azad Jammu and Kashmir. I have strong knowledge of HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, and fundamentals of Python. I enjoy learning new technologies and constantly improving my skills. My goal is to become a highly skilled software engineer and contribute to impactful projects.</p>
+    <p>I specialize in JavaScript‑based development, especially in crafting component‑driven UIs using React and building scalable REST APIs with Node.js & Express. My experience includes authentication systems, CRUD apps, dashboards, admin panels, and complete MERN solutions.</p>
+    <p>I love experimenting with new libraries, improving UI interactions, and making systems as efficient and clean as possible. My development philosophy: <b>Write clean code, use best practices, and create seamless user experiences.</b></p>
     <div class="img">
       <img src="pngtree-developers-are-coding-programs-on-computers-programmers-are-analyzing-data-png-image_11902650.png" alt="">
     </div>
   </section>
 
+  <!-- Skills -->
   <section class="section" id="skills">
     <h2 class="title">My Skills</h2>
     <div class="skill-box">
@@ -295,13 +285,14 @@
       <div class="skill"><b>Express.js</b><br/>REST APIs, middleware, routing systems</div>
       <div class="skill"><b>Git & GitHub</b><br/>Version control, project workflows</div>
       <div class="skill"><b>Tailwind CSS</b><br/>Modern UI styling, reusable utility classes</div>
+    </div>
   </section>
 
-
-      <section class="section" id="services">
+  <!-- Services -->
+  <section class="section" id="services">
     <h2 class="title">Services</h2>
-    <p style="max-width:800px; opacity:0.8; font-size:18px;">I offer multiple professional development services to help you grow your digital presence with modern, scalable solutions.</p>
-    <div class="skill-box" style="margin-top:20px;">
+    <p>I offer multiple professional development services to help you grow your digital presence with modern, scalable solutions.</p>
+    <div class="skill-box">
       <div class="skill"><b>Full-Stack Web Development</b><br/>End-to-end MERN applications with authentication & dashboards.</div>
       <div class="skill"><b>Frontend Development</b><br/>Modern UI/UX with React, Tailwind, animations & responsiveness.</div>
       <div class="skill"><b>Backend APIs</b><br/>Secure REST APIs using Node.js, Express & MongoDB.</div>
@@ -310,6 +301,8 @@
       <div class="skill"><b>Bug Fixing</b><br/>Fix UI, backend, or full-stack issues professionally.</div>
     </div>
   </section>
+
+  <!-- Projects -->
   <section class="section" id="projects">
     <h2 class="title">Projects</h2>
     <div class="project-box">
@@ -326,22 +319,25 @@
         <p>Interactive UI, animations, multiple sections, smooth scrolling, responsive layout, and clean code.</p>
       </div>
     </div>
-    </div>
   </section>
 
-  <section  class="section" id="contact">
+    
+
+
+  <!-- Contact -->
+  <section class="section" id="contact">
     <h2 class="title">Contact Me</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
+      <input type="tel" placeholder="Phone Number" required />
       <textarea rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
       <p style="margin-top:10px; opacity:0.7;">I usually reply within 24 hours. Feel free to reach out for collaboration or project inquiries!</p>
     </form>
   </section>
 
-
-    <section class="section" id="info">
+  <section class="section" id="info">
     <h2 class="title">My Info</h2>
     <div class="info-box">
       <div><b>Phone:</b><br/>0340-2652225</div>
@@ -351,23 +347,22 @@
     </div>
   </section>
 
-
-<script>
-  // Smooth UI Interaction
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.querySelector('nav').style.background = "#000";
-      setTimeout(() => {
-        document.querySelector('nav').style.background = "rgba(0,0,0,0.7)";
-      }, 400);
-    });
-  });
-
-      function toggleMenu() {
+  <script>
+    // Hamburger toggle
+    function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("show");
     }
-  
-</script>
+
+    // Smooth nav effect
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('nav').style.background = "#000";
+        setTimeout(() => {
+          document.querySelector('nav').style.background = "rgba(0,0,0,0.7)";
+        }, 400);
+      });
+    });
+  </script>
 
 </body>
 </html>
